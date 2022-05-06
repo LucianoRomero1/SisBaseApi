@@ -36,7 +36,15 @@ class DefaultController extends BaseController
     {
         $this->setBreadCrumbs("Ejemplo", "example");
         $entityManager = $this->getEm();
+        $arrayTable     = $this->baseService->renderTable($entityManager, $request, "Persona", "PersonaFilterType", "PersonaFilterController", "example");
+
+        return $this->render('persona/index.html.twig', array(
+            'personas'                  => $arrayTable[0],
+            'pagerHtml'                 => $arrayTable[1],
+            'filterForm'                => $arrayTable[2]->createView(),
+            'totalOfRecordsString'      => $arrayTable[3],
+        ));
         
-        return $this->render('default/index.html.twig');
+        return $this->render('persona/index.html.twig');
     }
 }
