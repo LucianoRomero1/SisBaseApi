@@ -40,6 +40,12 @@ class BaseController extends AbstractController
         $breadcrumbs->prependRouteItem("Inicio", "homepage");
     }
 
+    public function getActualDate(){
+        $fechaActual=  new \DateTime(null, new \DateTimeZone('America/Argentina/Buenos_Aires'));
+                
+        return $fechaActual;
+    }
+
      /* 
         Prepara la forma en que respondemos en todos los servicios.
         result = Respuesta json,

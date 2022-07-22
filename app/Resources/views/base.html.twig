@@ -105,6 +105,11 @@
         <script src="{{ asset('js/dataTablejQuery.js') }}"></script>
         <script src="{{ asset('js/dataTableBs.js') }}"></script>
         <script src=" {{ asset('js/jquery.table2excel.js') }}"></script>
+        {# Estos dos scripts siguientes son para ordenar bien las datatable por fecha #}
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+        <script src="//cdn.datatables.net/plug-ins/1.10.12/sorting/datetime-moment.js"></script>
+        {# Scripts propios #}
+        <script src=" {{ asset('js/customJs/ajaxDelete.js') }}"></script>
     {% endblock %}
 </body>
 </html>

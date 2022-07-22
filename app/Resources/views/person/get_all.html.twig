@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="card page">
+  <div class="card-header text-center p-4">
+    <b>Listado de Personas</b>
+    <a href="{{path('add_person')}}" class="btn btn-outline-primary float-right"><i class="fas fa-plus mr-2"></i>Nuevo</a>
+  </div>
+  <div class="card-body">
+    {% include 'person/_table.html.twig' with {'people': people } %}
+  </div>
+</div>
+<div id="loading"></div>
+<br>
+
+{% endblock %}
+{% block javascript %}
+    {{parent()}}
+    {# Tiene que estar acá para que en la consola no genere un error en las url que no usen datatable #}
+    <script src=" {{ asset('js/customJs/loadingDatatable.js') }}"></script>
+    <script src=" {{ asset('js/customJs/datatableBasic.js') }}"></script>
+{% endblock %}

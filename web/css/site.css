@@ -201,6 +201,14 @@ h6 {
   transition: 1s;
 }
 
+.inputSuccess{
+  border-bottom: 2px solid green !important;
+}
+
+.inputError{
+  border-bottom: 2px solid #E90B2F !important;
+}
+
 @media (min-width: 1200px) {
   .container{
       max-width: 1200px;

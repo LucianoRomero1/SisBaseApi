@@ -86,32 +86,14 @@ function exportToExcel() {
     return false;
 };
 
-//$('body').on('click', '.search', function (e) {
-    
-//        e.preventDefault();
-        
-//        var _objeto = $('.selected');
-//        alert(_objeto.tagName);
-        //if (typeof _objeto !== 'undefined'){
-        //if (typeof _objeto.codigo !== 'undefined'){
-//        if (_objeto.length > 0){
-//            var _codigo = _objeto.attr("codigo");
-//            var _descripcion = _objeto.attr("descripcion");
-//            $("#ConsumoType_proveedor").val(_codigo);
-//            $("#ConsumoType_proveedorRazonSocial").val(_descripcion);
-//            $("#btn-cerrar-proveedor").click();
-//            //$("#ConsumoType_nroFactura").focus();
-//        }
-//    });
-//ENTER like TAB
-$('body').on('keydown', 'input, select, textarea', function(e) {
+$('body').on('keydown', 'input, select', function(e) {
     var self = $(this)
       , form = self.parents('form:eq(0)')
       , focusable
       , next
       ;
     if (e.keyCode == 13) {
-        focusable = form.find('input,a,select,button,textarea').filter(':visible');
+        focusable = form.find('input,a,select,button').filter(':visible');
         next = focusable.eq(focusable.index(this)+1);
         if (next.length) {
             next.focus();
