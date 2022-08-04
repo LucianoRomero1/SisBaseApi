@@ -5,7 +5,6 @@ namespace AppBundle\Controller;
 use AppBundle\Base\BaseController;
 use AppBundle\Base\BaseService;
 use AppBundle\Handler\DefaultHandler;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends BaseController
@@ -18,9 +17,6 @@ class DefaultController extends BaseController
         $this->baseService      = $baseService;
     }
 
-    /**
-     * @Route("/", name="homepage")
-     */
     public function indexAction(Request $request)
     {
         $this->setBreadCrumbs();
@@ -29,9 +25,6 @@ class DefaultController extends BaseController
         return $this->render('default/index.html.twig');
     }
 
-      /**
-     * @Route("/example", name="example")
-     */
     public function exampleAction()
     {
         $this->setBreadCrumbs("Ejemplo", "example");

@@ -1,0 +1,10 @@
+# el homepage reemplaza al name="" del Route
+homepage:
+  path: /
+  defaults: { _controller: "AppBundle:Default:index" }
+  methods: GET
+
+example:
+  path: /example
+  defaults: { _controller: "AppBundle:Default:example" }
+  methods: GET
