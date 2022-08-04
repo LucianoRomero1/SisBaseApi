@@ -1,42 +1,41 @@
-
-<div class="table-responsive">
-    <table id="bigTable" class="table table-striped table-bordered" width="100%" namefile="Listado de Colores">
-        <thead>
-            <tr>
-                <th> # </th>
-                <th> Nombre </th>
-                <th> Apellido </th>
-                {# Analizar si van o no esos campos, porque son el usuario M y la fecha M #}
-                {# <th> Usuario </th>
-                <th> Fecha </th> #}
-                <th class="noExl"> Acciones </th>
-            </tr>
-        </thead>
-        <tbody> 
-            {% for person in people %}
-            <tr>
-                <th>{{person.id}}</th>
-                <td>{{person.nombre}}</td>
-                <td>{{person.apellido}}</td>
-                {# <td>{{person.usuarioM}}</td>
-                <td>{{person.fechaM|date("d/m/Y")}}</td> #}
-                <td class="actions noExl text-center">
-                    <div class="btn-group">
-                        <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Opciones <span class="caret"></span>
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ path('edit_person', { 'id': person.id }) }}" title='Editar'>Editar registro<i class="ml-1 text-success far fa-edit"></i></a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" title="Eliminar" style="cursor:pointer;" onclick="ajaxDelete({{person.id}}, 'delete/')">Eliminar registro<i class="ml-1 text-danger far fa-trash-alt"></i></a>
-                        </div>
+{# Le agrego el table responsive a la tabla con lg y md para que se adapte bien tambien #}
+<table id="table" class="table table-striped table-bordered table-responsive-lg table-responsive-md" width="100%" namefile="Listado de Colores">
+    <thead>
+        <tr>
+            <th> # </th>
+            <th> Nombre </th>
+            <th> Apellido </th>
+            {# Analizar si van o no esos campos, porque son el usuario M y la fecha M #}
+            {# <th> Usuario </th>
+            <th> Fecha </th> #}
+            <th class="noExl"> Acciones </th>
+        </tr>
+    </thead>
+    <tbody> 
+        {% for person in people %}
+        <tr>
+            <th>{{person.id}}</th>
+            <td>{{person.nombre}}</td>
+            <td>{{person.apellido}}</td>
+            {# <td>{{person.usuarioM}}</td>
+            <td>{{person.fechaM|date("d/m/Y")}}</td> #}
+            <td class="actions noExl text-center">
+                <div class="btn-group">
+                    <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Opciones <span class="caret"></span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ path('edit_person', { 'id': person.id }) }}" title='Editar'>Editar registro<i class="ml-1 text-success far fa-edit"></i></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" title="Eliminar" style="cursor:pointer;" onclick="ajaxDelete({{person.id}}, 'delete/')">Eliminar registro<i class="ml-1 text-danger far fa-trash-alt"></i></a>
                     </div>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>       
-    </table>
-</div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>       
+</table>
+
 <div class="row mt-3">
   <div class="col-md-4 pull-left">
     <!-- EXPORT DATE -->
