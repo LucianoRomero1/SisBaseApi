@@ -1,0 +1,21 @@
+get_all_people:
+  path: /get_all
+  defaults: { _controller: "AppBundle:Person:get_all" }
+  methods: GET
+
+## Uso GET && POST porque son funciones que tanto renderizan como envían datos, entonces son ambas a la vez
+## Si usara una API sólo sería POST
+add_person:
+  path: /add
+  defaults: { _controller: "AppBundle:Person:add" }
+  methods: [GET, POST]
+
+edit_person:
+  path: /edit/{id}
+  defaults: { _controller: "AppBundle:Person:edit", id:null }
+  methods: [GET, POST]
+
+delete_person:
+  path: /delete/{id}
+  defaults: { _controller: "AppBundle:Person:delete", id:null }
+  methods: [GET, POST]

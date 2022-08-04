@@ -6,13 +6,9 @@ use AppBundle\Base\BaseController;
 use AppBundle\Entity\Persona;
 use AppBundle\Handler\PersonHandler;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-/**
- * @Route("/person")
- */
 class PersonController extends BaseController{
 
     private $personHandler;
@@ -21,11 +17,8 @@ class PersonController extends BaseController{
     {
         $this->personHandler = $personHandler;
     }
-
-    /**
-     * @Route("/get_all", name="get_all_people")
-     */
-    public function get_all(){
+    
+    public function get_allAction(){
         $this->setBreadCrumbs("Listado de personas", "get_all_people");
         $entityManager  = $this->getEm();
         $people         = $entityManager->getRepository(Persona::class)->findBy(array(), ["id"=>"DESC"]);
@@ -35,10 +28,7 @@ class PersonController extends BaseController{
         ));
     }
 
-    /**
-     * @Route("/add", name="add_person")
-     */
-    public function add(Request $request){
+    public function addAction(Request $request){
         $this->setBreadCrumbs("Cargar persona", "add_person");
         $entityManager  = $this->getEm();
         $userM          = $this->getUser()->getUsername();
@@ -63,10 +53,7 @@ class PersonController extends BaseController{
         ));
     }
 
-    /**
-     * @Route("/edit/{id}", name="edit_person")
-     */
-    public function edit(Request $request, $id){
+    public function editAction(Request $request, $id){
         $this->setBreadCrumbsWithId("Editar persona", "edit_person", $id);
         $entityManager  = $this->getEm();
         $person         = $entityManager->getRepository(Persona::class)->find($id);
@@ -92,10 +79,7 @@ class PersonController extends BaseController{
         ));
     }
 
-    /**
-     * @Route("/delete/{id}", name="delete_person")
-     */
-    public function delete($id){
+    public function deleteAction($id){
         //This function is called by some Ajax from JavaScript
         $entityManager  = $this->getEm();
         $person         = $entityManager->getRepository(Persona::class)->find($id);
