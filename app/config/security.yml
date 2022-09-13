@@ -15,6 +15,7 @@ security:
             security: false
 
         main:
+            access_denied_handler: app.security.access_denied_handler
             anonymous: ~
             # activate different ways to authenticate
             guard:
