@@ -2,11 +2,11 @@
 # https://symfony.com/doc/current/security.html
 security:
     encoders:
-        GuardBundle\Entity\Usuario: bcrypt
+        GuardBundle\Entity\User: bcrypt
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         database_users:
-            entity: { class: AppBundle:Usuario, property: username }
+            entity: { class: AppBundle:User, property: username }
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs

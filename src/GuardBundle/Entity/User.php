@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="neosys.usuarios")
  */
 
-abstract class Usuario implements UserInterface
+abstract class User implements UserInterface
 {
     /**
      * @var string
@@ -83,7 +83,7 @@ abstract class Usuario implements UserInterface
      *
      * @param string $username
      *
-     * @return Usuario
+     * @return User
      */
     public function setUsername($username)
     {
@@ -107,7 +107,7 @@ abstract class Usuario implements UserInterface
      *
      * @param string $password
      *
-     * @return Usuario
+     * @return User
      */
     public function setPassword($password)
     {

@@ -24,14 +24,14 @@ class Role implements RoleInterface
 
 
     /**
-    *@ORM\ManyToMany(targetEntity="Usuario", mappedBy="roles")
+    *@ORM\ManyToMany(targetEntity="User", mappedBy="roles")
     */
-    private $usuarios;
+    private $users;
 
     
     public function __construct()
     {
-        $this->usuarios = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
     
     //Solicita el implement
@@ -59,12 +59,12 @@ class Role implements RoleInterface
      * 
      * @return Role
      */
-    public function addUsuario(Usuario $usuario)
+    public function addUser(User $user)
     {
-        if ($this->usuarios->contains($usuario)) {
+        if ($this->users->contains($user)) {
             return;
         }
-        $this->usuarios->add($usuario);
+        $this->users->add($user);
     
         return $this;
     }
@@ -74,22 +74,22 @@ class Role implements RoleInterface
      *
      * 
      */
-    public function removeUsuario(Usuario $usuario)
+    public function removeUser(User $user)
     {
-        if (!$this->usuarios->contains($usuario)) {
+        if (!$this->users->contains($user)) {
             return;
         }
-        $this->usuarios->removeElement($usuario);
+        $this->users->removeElement($user);
     }
 
     /**
-     * Get usuarios
+     * Get users
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getUsuarios()
+    public function getUsers()
     {
-        return $this->usuarios;
+        return $this->users;
     }
 
 }

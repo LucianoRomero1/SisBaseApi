@@ -3,15 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use GuardBundle\Entity\Usuario as BaseUser;
+use GuardBundle\Entity\User as BaseUser;
 
 /**
- * Usuario
+ * User
  *
  * @ORM\Table(name="neosys.usuarios")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\UsuarioRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class Usuario extends BaseUser
+class User extends BaseUser
 {
     public function __construct() {
         parent::__construct();
