@@ -2,13 +2,14 @@
 
 namespace AppBundle\Base;
 
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-
 
 class BaseController extends AbstractController
 {
@@ -17,11 +18,19 @@ class BaseController extends AbstractController
         return $this->getDoctrine()->getManager();
     }
 
+    public function getLoggedUser($em){
+        $userLogged = $this->getUser()->getUsername();
+        $user       = $em->getRepository(User::class)->findOneBy(["username"=>$userLogged]);
+
+        return $user;
+    }
+
     public function getActualDate(){
         $fechaActual=  new \DateTime(null, new \DateTimeZone('America/Argentina/Buenos_Aires'));
                 
         return $fechaActual;
     }
+    
 
     public function responseJson($data){
         $normalizers    = array(new GetSetMethodNormalizer());

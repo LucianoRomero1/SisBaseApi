@@ -17,15 +17,17 @@ class DefaultController extends BaseController
         $this->baseService      = $baseService;
     }
 
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        $entityManager = $this->getEm();
+        $entityManager  = $this->getEm();
+        $user           = $this->getLoggedUser($entityManager);
 
         $data       = array(
             'status'    => 'success',
-            'message'   => 'Im homepage'
+            'message'   => 'Im homepage',
+            'data'      => $user
         );
-        
+
         return $this->responseJson($data);
     }
 

@@ -21,7 +21,7 @@ abstract class User implements UserInterface
      *
      * @ORM\Column(name="usuario", type="string", length=20)
      */
-    private $username;
+    protected $username;
 
     /**
      * @var string
@@ -35,21 +35,21 @@ abstract class User implements UserInterface
      *
      * @ORM\Column(name="usuario_mail", type="string", length=100)
      */
-    private $email;
+    protected $email;
     
     /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=50)
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="apellido", type="string", length=50)
      */
-    private $apellido;
+    protected $apellido;
     
     /**
      * @ORM\ManyToMany(targetEntity="Role", inversedBy="usuarios")
