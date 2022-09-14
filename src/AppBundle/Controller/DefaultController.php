@@ -19,18 +19,15 @@ class DefaultController extends BaseController
 
     public function indexAction(Request $request)
     {
-        $this->setBreadCrumbs();
         $entityManager = $this->getEm();
+
+        $data       = array(
+            'status'    => 'success',
+            'message'   => 'Im homepage'
+        );
         
-        return $this->render('default/index.html.twig');
+        return $this->responseJson($data);
     }
 
-    public function exampleAction()
-    {
-        $this->setBreadCrumbs("Ejemplo", "example");
-        $entityManager = $this->getEm();
-
-        return $this->render('default/example.html.twig');
-    }
 
 }
