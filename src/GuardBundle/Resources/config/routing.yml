@@ -1,0 +1,3 @@
+guard_login:
+  resource: "@GuardBundle/Resources/config/routing/login.yml"
+  prefix: /

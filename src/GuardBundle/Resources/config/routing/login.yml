@@ -1,0 +1,11 @@
+login:
+  path: /login
+  defaults: { _controller: "GuardBundle:Security:login" }
+
+security_login_check:
+  path: /login_check
+  defaults: { _controller: "GuardBundle:Security:login_check" }
+
+logout:
+  path: /logout
+  defaults: { _controller: "GuardBundle:Security:logout" }

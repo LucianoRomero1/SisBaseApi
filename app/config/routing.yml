@@ -1,10 +1,13 @@
 app:
     resource: '@AppBundle/Resources/config/routing.yml'
     prefix: /
-
 guard:
-    resource: "@GuardBundle/Controller/"
-    type:     annotation
-    prefix:   /
+    resource: '@GuardBundle/Resources/config/routing.yml'
+    prefix: /
+    
+# guard:
+#     resource: "@GuardBundle/Controller/"
+#     type:     annotation
+#     prefix:   /
 
 
